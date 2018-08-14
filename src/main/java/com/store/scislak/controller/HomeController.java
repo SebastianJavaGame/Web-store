@@ -1,4 +1,4 @@
-package com.store.scislak;
+package com.store.scislak.controller;
 
 import java.text.DateFormat;
 import java.util.Date;
