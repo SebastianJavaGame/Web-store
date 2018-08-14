@@ -10,5 +10,6 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
+<p><a href="clientsView.jsp">See list all of clients</a></p>
 </body>
 </html>
