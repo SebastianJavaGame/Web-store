@@ -2,13 +2,13 @@ package com.store.scislak.dataBase.impl;
 
 import java.util.List;
 
-import javax.management.Query;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import com.store.scislak.dataBase.ReadableDataBase;
 import com.store.scislak.encje.Client;
+import com.store.scislak.encje.LoginDate;
 
 public class ReadClient implements ReadableDataBase{
 
@@ -19,16 +19,22 @@ public class ReadClient implements ReadableDataBase{
 		
 		try {
 			Client client = new Client();
-			client.setAccess("user");
 			client.setAddress("Ryki ul.S³owackiego 4a");
 			client.setEmail("Bohdan14@tlen.pl");
 			client.setLast_name("Wymaz");
 			client.setName("Bogdan");
-			client.setPassword("czajka18p");
 			client.setPostcode("08-500");
+			
+			LoginDate loginDate = new LoginDate();
+			loginDate.setEmail(client.getEmail());
+			loginDate.setPassword("private");
+			loginDate.setAccess("USER");
+			
+			client.setLoginDate(loginDate);
 			
 			entityManager.getTransaction().begin();
 			entityManager.persist(client);
+			entityManager.persist(loginDate);
 			entityManager.getTransaction().commit();
 		}
 		finally {

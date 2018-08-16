@@ -10,6 +10,7 @@
 </h1>
 
 <P>  The time on the server is ${serverTime}. </P>
-<p><a href="clientsView.jsp">See list all of clients</a></p>
+<p><a href="/scislak/clients">See list all of clients</a></p>
+<a href="<c:url value="/j_spring_security_logout" />">Wyloguj</a>
 </body>
 </html>

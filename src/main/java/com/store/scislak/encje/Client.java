@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -18,9 +20,6 @@ public class Client implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
-	
-	@Column(name="password")
-	private String password;
 	
 	@Column(name="name")
 	private String name;
@@ -37,19 +36,18 @@ public class Client implements Serializable{
 	@Column(name="email")
 	private String email;
 	
-	@Column(name="access")
-	private String access;
+	@OneToOne
+	@JoinColumn(name="email", insertable=false, updatable=false)
+	private LoginDate loginDate;
 	
 	public Client() {}
-	public Client(String password, String name, String last_name, String address, String postcode, String email, String access) {
+	public Client(String name, String last_name, String address, String postcode, String email) {
 		super();
-		this.password = password;
 		this.name = name;
 		this.last_name = last_name;
 		this.address = address;
 		this.postcode = postcode;
 		this.email = email;
-		this.access = access;
 	}
 
 	public int getId() {
@@ -57,12 +55,6 @@ public class Client implements Serializable{
 	}
 	public void setId(int id) {
 		this.id = id;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
 	}
 	public String getName() {
 		return name;
@@ -94,14 +86,14 @@ public class Client implements Serializable{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getAccess() {
-		return access;
+	public LoginDate getLoginDate() {
+		return loginDate;
 	}
-	public void setAccess(String access) {
-		this.access = access;
+	public void setLoginDate(LoginDate loginDate) {
+		this.loginDate = loginDate;
 	}
 	@Override
 	public String toString() {
-		return "[" + id + " " + name + " " + last_name + " " + address + " " + email + "]";
+		return "[" + id + " " + name + " " + last_name + " " + address + " " + postcode + " " + email + "]";
 	}
 }
