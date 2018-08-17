@@ -2,6 +2,7 @@ package com.store.scislak.encje;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -36,7 +37,7 @@ public class Client implements Serializable{
 	@Column(name="email")
 	private String email;
 	
-	@OneToOne
+	@OneToOne(cascade=CascadeType.ALL)
 	@JoinColumn(name="email", insertable=false, updatable=false)
 	private LoginDate loginDate;
 	

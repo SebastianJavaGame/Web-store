@@ -6,7 +6,10 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.store.scislak.dataBase.SaveableDataBase;
+import com.store.scislak.dataBase.impl.SaveClient;
 import com.store.scislak.encje.Client;
+import com.store.scislak.encje.LoginDate;
 
 @Controller
 public class LoginController {
@@ -32,6 +35,9 @@ public class LoginController {
 	@RequestMapping(value="/sing", method = RequestMethod.GET)
 	public String getSingUpForm(Model model) {
 		Client client = new Client();
+		LoginDate loginDate = new LoginDate();
+		
+		client.setLoginDate(loginDate);
 		model.addAttribute("client", client);
 		
 		return "sing";
@@ -39,11 +45,11 @@ public class LoginController {
 	
 	@RequestMapping(value="/sing", method = RequestMethod.POST)
 	public String processSingUpForm(@ModelAttribute("client") Client client) {
-		System.out.println(client.getAddress());
-		System.out.println(client.getEmail());
-		System.out.println(client.getName());
-		System.out.println(client.getLast_name());
-		System.out.println(client.getPostcode());
+		client.getLoginDate().setAccess("USER");
+		client.getLoginDate().setEmail(client.getEmail());
+		
+		SaveableDataBase dataBase = new SaveClient();
+		dataBase.save(client);
 		
 		return "redirect:/login";
 	}

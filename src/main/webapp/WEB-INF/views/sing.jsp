@@ -11,12 +11,13 @@
 </head>
 <body>
 	<form:form modelAttribute="client">
-		<form:input path="email" type="text" placeholder="email"/>
-		<form:input path="name" type="text" placeholder="name"/>
-		<form:input path="last_name" type="text" placeholder="last_name"/>
-		<form:input path="address" type="text" placeholder="address"/>
-		<form:input path="postcode" type="text" placeholder="postcode"/>
-		<input type="submit" value="Send"/>
+		<form:input path="email" type="text" placeholder="email"/><br/>
+		<form:input path="loginDate.password" type="password" placeholder="password"/><br/>
+		<form:input path="name" type="text" placeholder="name"/><br/>
+		<form:input path="last_name" type="text" placeholder="last_name"/><br/>
+		<form:input path="address" type="text" placeholder="address"/><br/>
+		<form:input path="postcode" type="text" placeholder="postcode"/><br/>
+		<input type="submit" value="Send"/><br/>
 	</form:form>
 </body>
 </html>
