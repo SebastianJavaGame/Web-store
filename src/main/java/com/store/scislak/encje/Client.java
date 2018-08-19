@@ -11,6 +11,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
 
 @Entity
 @Table(name="Client")
@@ -22,18 +26,25 @@ public class Client implements Serializable{
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int id;
 	
+	@NotNull(message="{NotNull.Client.name.validation}")
 	@Column(name="name")
 	private String name;
 	
+	@NotNull(message="{NotNull.Client.last_name.validation}")
 	@Column(name="last_name")
 	private String last_name;
 	
+	@NotNull(message="{NotNull.Client.address.validation}")
 	@Column(name="address")
 	private String address;
 	
+	@NotNull(message="{NotNull.Client.postcode.validation}")
+	@Size(min=5 ,max=6, message="{Size.Client.postcode.validation}")
 	@Column(name="postcode")
 	private String postcode;
 	
+	@NotNull(message="{NotNull.Client.email.validation}")
+	@Email(message="{Email.Client.email.validation}")
 	@Column(name="email")
 	private String email;
 	

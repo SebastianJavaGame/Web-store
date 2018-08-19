@@ -1,7 +1,10 @@
 package com.store.scislak.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -44,7 +47,10 @@ public class LoginController {
 	}
 	
 	@RequestMapping(value="/sing", method = RequestMethod.POST)
-	public String processSingUpForm(@ModelAttribute("client") Client client) {
+	public String processSingUpForm(@ModelAttribute("client") @Valid Client client, BindingResult result) {
+		if(result.hasErrors())
+			return "sing";
+		
 		client.getLoginDate().setAccess("USER");
 		client.getLoginDate().setEmail(client.getEmail());
 		

@@ -6,7 +6,6 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<link rel="stylesheet"	href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
 <title>Login</title>
 </head>
 <body>
@@ -21,7 +20,7 @@
 		<div>
     		<div>
 			  	<div>
-			    	<h3>Zaloguj się</h3>
+			    	<h3>Login</h3>
 			 	</div>
 			  	<div>
 			  	<c:if test="${not empty error}">
@@ -37,10 +36,11 @@
 			    		<div>
 			    			<input placeholder="Hasło" name='j_password'  type="password" value="">
 			    		</div>
-			    		<input type="submit" value="Zaloguj się">
+			    		<input type="submit" value="Login">
 			    	</fieldset>
 			      	</form>
 			    </div>
+			    
 			</div>
 		</div>
 	</div>

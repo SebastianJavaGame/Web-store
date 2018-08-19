@@ -133,14 +133,28 @@
    			 <artifactId>javassist</artifactId>
    			 <version>3.12.1.GA</version>
 		</dependency>
+		
+		<!-- Validation -->
+		<dependency>
+    		 <groupId>org.hibernate</groupId>
+   			 <artifactId>hibernate-validator</artifactId>
+  			 <version>4.3.1.Final</version>
+		</dependency>
 	
 		<!-- Test -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.7</version>
+			<version>4.12</version>
 			<scope>test</scope>
 		</dependency>    
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>4.0.3.RELEASE</version>
+			<scope>test</scope>
+		</dependency>
 		
 		<!-- Security -->    
 		<dependency>
