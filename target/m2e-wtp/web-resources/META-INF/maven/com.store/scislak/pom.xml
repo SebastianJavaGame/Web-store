@@ -152,8 +152,7 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
-			<version>4.0.3.RELEASE</version>
-			<scope>test</scope>
+			<version>${org.springframework-version}</version>
 		</dependency>
 		
 		<!-- Security -->    
