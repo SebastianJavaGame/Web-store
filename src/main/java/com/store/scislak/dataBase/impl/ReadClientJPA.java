@@ -1,35 +1,34 @@
 package com.store.scislak.dataBase.impl;
 
-import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
-import com.store.scislak.dataBase.SaveableDataBase;
+import com.store.scislak.dataBase.ReadableDataBase;
 import com.store.scislak.encje.Client;
 
-public class SaveClient implements SaveableDataBase{
-
+public class ReadClientJPA implements ReadableDataBase{
+	@SuppressWarnings("unchecked")
 	@Override
-	public void save(Serializable serializable) {
+	public List<Client> read() {
 		EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("Connection");
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
+		List<Client> listOfClient = null; 
 		
 		try {			
-			Client client = (Client) serializable;
-			entityManager.getTransaction().begin();
-			entityManager.persist(client);
-			entityManager.getTransaction().commit();
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-			entityManager.getTransaction().rollback();
+			listOfClient = entityManager.createQuery("FROM Client").getResultList();	
+			
+			for(Client client: listOfClient) {
+				System.out.println(client.toString());
+			}
 		}
 		finally {
 			entityManager.close();
 			entityManagerFactory.close();
 		}
+		
+		return listOfClient;
 	}
-
 }

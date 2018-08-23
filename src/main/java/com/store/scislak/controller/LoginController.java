@@ -2,6 +2,7 @@ package com.store.scislak.controller;
 
 import javax.validation.Valid;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,13 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.store.scislak.dataBase.SaveableDataBase;
-import com.store.scislak.dataBase.impl.SaveClient;
 import com.store.scislak.encje.Client;
 import com.store.scislak.encje.LoginDate;
 
 @Controller
 public class LoginController {
 
+	@Autowired
+	public SaveableDataBase saveableDataBase;
+	
 	@RequestMapping(value="/login", method = RequestMethod.GET)
 	public String login() {
  		return "login";
@@ -54,8 +57,7 @@ public class LoginController {
 		client.getLoginDate().setAccess("USER");
 		client.getLoginDate().setEmail(client.getEmail());
 		
-		SaveableDataBase dataBase = new SaveClient();
-		dataBase.save(client);
+		saveableDataBase.save(client);
 		
 		return "redirect:/login";
 	}
