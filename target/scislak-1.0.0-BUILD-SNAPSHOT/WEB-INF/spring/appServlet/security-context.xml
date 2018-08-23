@@ -9,6 +9,12 @@
 		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.2.xsd">
 		
+	<import resource="classpath*:persistence.xml"/>
+		
+	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
+		<property name="persistenceUnitName" value="Connection"/>
+	</bean>
+		
 	<security:http auto-config="true">
 		<security:intercept-url pattern="/clients" access="ROLE_ADMIN" />
 		
@@ -20,9 +26,9 @@
 	
 	<security:authentication-manager>
 		<security:authentication-provider>
-			<security:user-service>
-				<security:user name="Admin" password="Admin123" authorities="ROLE_ADMIN" />
-			</security:user-service>
+			<security:jdbc-user-service data-source-ref="entityManagerFactory"
+				users-by-username-query="SELECT email, password, enabled FROM login_date where email=?"
+				authorities-by-username-query="SELECT email, access FROM login_date where email=?"/>
 		</security:authentication-provider>
 	</security:authentication-manager>
 </beans>

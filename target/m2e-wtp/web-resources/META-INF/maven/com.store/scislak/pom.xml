@@ -134,6 +134,12 @@
    			 <version>3.12.1.GA</version>
 		</dependency>
 		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-jdbc</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
+		
 		<!-- Validation -->
 		<dependency>
     		 <groupId>org.hibernate</groupId>
@@ -167,7 +173,17 @@
 			<artifactId>spring-security-config</artifactId>
 			<version>3.1.4.RELEASE</version>
 		</dependency>
-		
+
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<version>2.0.2-beta</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${org.springframework-version}</version>
+		</dependency>
 	</dependencies>
     <build>
         <plugins>

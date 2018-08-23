@@ -23,6 +23,17 @@ public class LoginDate implements Serializable{
 	@Column(name="access")
 	private String access;
 
+	@Column(name="enabled")
+	private Boolean enabled;
+	
+	public Boolean getEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(Boolean enabled) {
+		this.enabled = enabled;
+	}
+
 	public String getEmail() {
 		return email;
 	}
