@@ -28,19 +28,19 @@
 						<section>
 							<div class="date">
 								<p class="atribute">Name</p>
-								<p class="value">Sebastian Ściślak</p>
+								<p class="value">${client.name}</p>
 							</div>
 							<div class="date">
 								<p class="atribute">E-mail</p>
-								<p class="value">sebek2088s4@tlen.pl</p>
+								<p class="value">${client.email}</p>
 							</div>
 							<div class="date">
 								<p class="atribute">Adres</p>
-								<p class="value">Sosnówka 27</p>
+								<p class="value">${client.address}</p>
 							</div>
 							<div class="date">
 								<p class="atribute">Postcode</p>
-								<p class="value">08-550</p>
+								<p class="value">${client.postcode}</p>
 							</div>
 						</section>
 					</header>

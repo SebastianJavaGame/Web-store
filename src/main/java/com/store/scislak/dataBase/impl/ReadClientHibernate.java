@@ -13,4 +13,10 @@ public class ReadClientHibernate implements ReadableDataBase{
 		return null;
 	}
 
+	@Override
+	public Client readClient(String email) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

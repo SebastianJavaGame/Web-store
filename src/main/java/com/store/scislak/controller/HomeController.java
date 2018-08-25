@@ -12,7 +12,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.store.scislak.auth.UserDetails;
 import com.store.scislak.dataBase.ReadableDataBase;
+import com.store.scislak.encje.Client;
 
 /**
  * Handles requests for the application home page.
@@ -22,6 +24,9 @@ public class HomeController {
 	
 	@Autowired
 	private ReadableDataBase readableDataBase;
+	
+	@Autowired 
+	private UserDetails userDetails;
 	
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
@@ -50,6 +55,12 @@ public class HomeController {
 	
 	@RequestMapping(value="/clientHome")
 	public String clientHome(Model model) {
+		userDetails.init();
+		String userName = userDetails.getUserName();
+		Client client = readableDataBase.readClient(userName);
+		client.setName(client.getName() + " " + client.getLast_name());
+		
+		model.addAttribute("client", client);
 		
 		return "clientHome";
 	}
