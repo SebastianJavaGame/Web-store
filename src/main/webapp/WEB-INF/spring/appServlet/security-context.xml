@@ -15,11 +15,14 @@
 		<property name="persistenceUnitName" value="Connection"/>
 	</bean>
 		
+	<bean id="authSuccessHandler" class="com.store.scislak.auth.AuthSuccessHandler"/>
+		
 	<security:http auto-config="true">
 		<security:intercept-url pattern="/clients" access="ROLE_ADMIN" />
+		<security:intercept-url pattern="/clientHome" access="ROLE_USER" />
 		
 		<security:form-login login-page="/login" 
-               default-target-url="/clients"   
+               authentication-success-handler-ref="authSuccessHandler"   
                authentication-failure-url="/loginfailed"/>
         <security:logout logout-success-url="/logout" />
 	</security:http>

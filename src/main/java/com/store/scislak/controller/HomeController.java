@@ -48,4 +48,10 @@ public class HomeController {
 		return "clientsView";
 	}
 	
+	@RequestMapping(value="/clientHome")
+	public String clientHome(Model model) {
+		
+		return "clientHome";
+	}
+	
 }
