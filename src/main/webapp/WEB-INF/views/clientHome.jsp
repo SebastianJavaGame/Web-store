@@ -11,12 +11,19 @@
 <body>
 	<div id="wrapper">
 		<header id="topSide">
-			<div id="shop">
+			<div class="option">
 				<a href="#"><p>Shop</p></a>
 			</div>
-			<div id="logout">
-				<a href="<c:url value="/j_spring_security_logout" />"><p>Logout</p></a>
+			<div class="option">
+				<a href="#"><p>Atual orders</p></a>
 			</div>
+			<div class="option">
+				<a href="#"><p>History orders</p></a>
+			</div>
+			<div id="logout">
+				<a href="<c:url value="/j_spring_security_logout"/>"><p>Logout</p></a>
+			</div>
+			<div style="clear: both"></div>
 		</header>
 		<section>
 			<div id="clientStore">
@@ -46,11 +53,34 @@
 					</header>
 				</div>
 				<div id="ordersList">
-					<p>Zamówienie 13027 - Chlep razowy - 2.50zł</p>
+					<table style="width:100%">
+						<tr>
+							<th><p>OBJECT</p></th>
+							<th><p>COUNT</p></th>
+							<th><p>VAT23%%</p></th>
+							<th><p>NETTO</p></th>
+							<th><p>TOTAL</p></th>
+						</tr>
+						<tr>
+							<th><p>Chleb razowy czarny</p></th>
+							<th><p>2</p></th>
+							<th><p>0.10</p></th>
+							<th><p>2.00</p></th>
+							<th><p>4.20</p></th>
+						</tr>
+						<tr class="result">
+							<th><p>RESULT</p></th>
+							<th><p>2</p></th>
+							<th><p>0.20</p></th>
+							<th><p>4.00</p></th>
+							<th><p>4.20</p></th>
+						</tr>
+					</table>
 				</div>
 			</div>
 		</section>
-		<footer></footer>
+		<div style="clear: both"></div>
+		<footer>sebek2088s4@tlen.pl</footer>
 	</div>
 </body>
 </html>
