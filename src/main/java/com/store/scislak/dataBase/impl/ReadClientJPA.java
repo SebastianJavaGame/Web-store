@@ -7,7 +7,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import com.store.scislak.dataBase.ReadableDataBase;
-import com.store.scislak.encje.Client;
 
 public class ReadClientJPA implements ReadableDataBase{
 	
@@ -16,38 +15,38 @@ public class ReadClientJPA implements ReadableDataBase{
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Client> read() {
+	public List<Object> read(String dataBase) {
 		init();
-		List<Client> listOfClient = null; 
+		List<Object> listOfClient = null; 
 		
-		try {			
-			listOfClient = entityManager.createQuery("FROM Client").getResultList();	
+		try {		
+			listOfClient = entityManager.createQuery("FROM " + dataBase).getResultList();
 			
-			for(Client client: listOfClient)
+			for(Object client: listOfClient)
 				System.out.println(client.toString());
 		}
 		finally {
 			cleanUp();
 		}
 		
-		return listOfClient;
+		return (List<Object>)listOfClient;
 	}
 
 	@Override
-	public Client readClient(String email) {
+	public Object readClient(String email, String dataBase) {
 		init();
-		Client client = null;
+		Object object = null;
 		
 		try {			
-			client = (Client) entityManager.createQuery("FROM Client WHERE email='" + email + "'").getSingleResult();
+			object = entityManager.createQuery("FROM " + dataBase + " WHERE email='" + email + "'").getSingleResult();
 			
-			System.out.println(client.toString());
+			System.out.println(object.toString());
 		}
 		finally {
 			cleanUp();
 		}
 		
-		return client;
+		return object;
 	}
 	
 	private void init(){

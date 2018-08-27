@@ -57,8 +57,8 @@ public class SingUpValidatorTest {
 		Client client = new Client("Sebastian", "Nazwisko", "Adres", "08-550", "scislak2088s4@tlen.pl");
 		List<Client> list = new ArrayList<Client>();
 		list.add(client);
-		when(readableDataBase.read()).thenReturn(list);
+		//when(readableDataBase.read("Client")).thenReturn((List<?>) list);
 		
-		assertEquals(client, readableDataBase.read().get(0));
+		assertEquals(client, readableDataBase.read("Client").get(0));
 	}
 }

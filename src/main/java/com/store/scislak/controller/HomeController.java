@@ -49,7 +49,7 @@ public class HomeController {
 	
 	@RequestMapping(value="/clients")
 	public String list(Model model) {
-		model.addAttribute("clients", readableDataBase.read());
+		model.addAttribute("clients", readableDataBase.read("Client"));
 		return "clientsView";
 	}
 	
@@ -57,12 +57,11 @@ public class HomeController {
 	public String clientHome(Model model) {
 		userDetails.init();
 		String userName = userDetails.getUserName();
-		Client client = readableDataBase.readClient(userName);
+		Client client = (Client) readableDataBase.readClient(userName, "Client");
 		client.setName(client.getName() + " " + client.getLast_name());
 		
 		model.addAttribute("client", client);
 		
 		return "clientHome";
 	}
-	
 }

@@ -2,10 +2,8 @@ package com.store.scislak.dataBase;
 
 import java.util.List;
 
-import com.store.scislak.encje.Client;
-
 public interface ReadableDataBase {
-	public List<Client> read();
+	public List<?> read(String dataBase);
 	
-	public Client readClient(String email);
+	public Object readClient(String email, String dataBase);
 }

@@ -18,7 +18,7 @@
 	<bean id="authSuccessHandler" class="com.store.scislak.auth.AuthSuccessHandler"/>
 		
 	<security:http auto-config="true">
-		<security:intercept-url pattern="/clients" access="ROLE_ADMIN" />
+		<security:intercept-url pattern="/adminHome" access="ROLE_ADMIN" />
 		<security:intercept-url pattern="/clientHome" access="ROLE_USER" />
 		
 		<security:form-login login-page="/login" 

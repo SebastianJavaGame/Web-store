@@ -7,7 +7,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 
 import com.store.scislak.dataBase.SaveableDataBase;
-import com.store.scislak.encje.Client;
 
 public class SaveClientJPA implements SaveableDataBase{
 
@@ -17,9 +16,9 @@ public class SaveClientJPA implements SaveableDataBase{
 		EntityManager entityManager = entityManagerFactory.createEntityManager();
 		
 		try {			
-			Client client = (Client) serializable;
+			Object object = serializable;
 			entityManager.getTransaction().begin();
-			entityManager.persist(client);
+			entityManager.persist(object);
 			entityManager.getTransaction().commit();
 		}
 		catch(Exception e) {
