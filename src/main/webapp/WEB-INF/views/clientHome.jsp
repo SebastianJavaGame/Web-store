@@ -12,10 +12,10 @@
 	<div id="wrapper">
 		<header id="topSide">
 			<div class="option">
-				<a href="#"><p>Shop</p></a>
+				<a href="/scislak/productsClient"><p>Shop</p></a>
 			</div>
 			<div class="option">
-				<a href="#"><p>Atual orders</p></a>
+				<a href="/scislak/clientHome"><p>Atual orders</p></a>
 			</div>
 			<div class="option">
 				<a href="#"><p>History orders</p></a>

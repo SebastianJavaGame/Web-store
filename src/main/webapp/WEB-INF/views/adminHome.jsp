@@ -14,10 +14,10 @@
 	<div id="wrapper">
 		<header id="topSide">
 			<div class="option">
-				<a href="#"><p>View shop</p></a>
+				<a href="/scislak/productsAdmin"><p>View shop</p></a>
 			</div>
 			<div class="option">
-				<a href="#"><p>Add product</p></a>
+				<a href="/scislak/adminHome"><p>Add product</p></a>
 			</div>
 			<div class="option">
 				<a href="#"><p>Delete product</p></a>

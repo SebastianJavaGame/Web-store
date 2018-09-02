@@ -20,6 +20,11 @@ public class LoginController {
 	@Autowired
 	public SaveableDataBase saveableDataBase;
 	
+	@RequestMapping(value="/", method = RequestMethod.GET)
+	public String homePage() {
+		return "redirect:/login";
+	}
+	
 	@RequestMapping(value="/login", method = RequestMethod.GET)
 	public String login() {
  		return "login";
