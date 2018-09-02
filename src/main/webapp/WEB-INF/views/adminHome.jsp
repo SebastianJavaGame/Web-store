@@ -9,6 +9,7 @@
 	<meta charset="UTF-8">
 	<title>WebStore</title>
 	<link rel="stylesheet" href="<c:url value="resources/styles/style.css"/>"/>
+	<script src="<c:url value="resources/javascript/script.js"/>"></script>
 </head>
 <body>
 	<div id="wrapper">

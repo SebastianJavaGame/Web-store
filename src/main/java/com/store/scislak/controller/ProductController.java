@@ -6,6 +6,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.store.scislak.auth.ClientDetails;
+import com.store.scislak.auth.ClientDetails.UserStatus;
 import com.store.scislak.dataBase.ReadableDataBase;
 
 @Controller
@@ -14,15 +16,15 @@ public class ProductController {
 	@Autowired
 	private ReadableDataBase readableDataBase;
 	
-	@RequestMapping(value="/productsAdmin", method = RequestMethod.GET)
+	@RequestMapping(value="/products", method = RequestMethod.GET)
 	public String listAdmin(Model model) {
 		model.addAttribute("products", readableDataBase.read("Product"));
-		return "productsViewAdmin";
-	}
-	
-	@RequestMapping(value="/productsClient", method = RequestMethod.GET)
-	public String listClient(Model model) {
-		model.addAttribute("products", readableDataBase.read("Product"));
-		return "productsViewClient";
+		
+		if(ClientDetails.getUserStatus() == UserStatus.ADMIN)
+			model.addAttribute("admin", true);
+		else
+			model.addAttribute("admin", false);
+		
+		return "productsView";
 	}
 }

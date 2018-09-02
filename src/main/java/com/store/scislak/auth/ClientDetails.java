@@ -7,6 +7,9 @@ public class ClientDetails implements com.store.scislak.auth.UserDetails {
 	
 	private UserDetails userDetails;
 	
+	public enum UserStatus{ADMIN, USER}
+	private static UserStatus userStatus;
+	
 	public void init() {
 		userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 	}
@@ -20,5 +23,15 @@ public class ClientDetails implements com.store.scislak.auth.UserDetails {
 	@Override
 	public String getUserPassword() {
 		return userDetails.getPassword();
+	}
+
+
+	public static UserStatus getUserStatus() {
+		return userStatus;
+	}
+
+
+	public static void setUserStatus(UserStatus userStatus) {
+		ClientDetails.userStatus = userStatus;
 	}
 }
