@@ -50,19 +50,31 @@
 				<div style="clear: both"></div>
 			</header>
 		</c:if>
+		<div id="infoProductHead">
+			<table>
+				<tr>
+					<th>Image</th>
+					<th>Name</th>
+					<th>Category</th>
+					<th>Netto</th>
+					<th>Brutto</th>
+					<th>Vat</th>
+				</tr>
+			</table>
+		</div>
 		<c:forEach items="${products}" var="product">
-			<div class="col-sm-6 col-md-3" style="padding-bottom: 15px">
-				<div class="thumbnail">
 					<div class="caption">
-						<h3>${product.id}</h3>
-						<p>${product.name}</p>
-						<p>${product.category}</p>
-						<p>${product.netto}</p>
-						<p>${product.brutto}</p>
-						<p>${product.vat}</p>
+						<table id="infoProduct">
+							<tr>
+								<td><img width="100px" height="100px"></img></td>
+								<td>${product.name}</td>
+								<td>${product.category}</td>
+								<td>${product.netto}</td>
+								<td>${product.brutto}</td>
+								<td>${product.vat}</td>
+							</tr>
+						</table>
 					</div>
-				</div>
-			</div>
 		</c:forEach>
 </body>
 </html>

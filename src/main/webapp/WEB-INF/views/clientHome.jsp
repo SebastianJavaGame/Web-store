@@ -12,7 +12,7 @@
 	<div id="wrapper">
 		<header id="topSide">
 			<div class="option">
-				<a href="/scislak/productsClient"><p>Shop</p></a>
+				<a href="/scislak/products"><p>Shop</p></a>
 			</div>
 			<div class="option">
 				<a href="/scislak/clientHome"><p>Atual orders</p></a>

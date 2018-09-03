@@ -118,12 +118,46 @@ a:visited{
 	text-decoration: none;
 }
 
-table, th, td {
-    border: 1px solid black;
-}
-
 .result {
 	color: red;
+}
+
+.caption{
+	border: 1px solid gray;
+	margin-bottom: 10px;
+	background-image: url("../images/background.png");
+}
+
+.caption img{
+	float: left;
+	display: inline-block;
+	margin: auto;
+}
+
+#infoProductHead table{
+	width: 100%;
+	font-size: 20px;
+	font-weight: bold;
+	table-layout: fixed;
+	border: 1px solid black;
+	background-color: #cd2c3c;
+}
+
+#infoProduct{
+	width:100%;
+	table-layout: fixed;
+}
+
+#infoProduct img{
+	padding-left: 28px;
+}
+
+table th, table td{
+	text-align: center;
+}
+
+table th{
+	border: 1px solid black;
 }
 
 footer{

@@ -15,7 +15,7 @@
 	<div id="wrapper">
 		<header id="topSide">
 			<div class="option">
-				<a href="/scislak/productsAdmin"><p>View shop</p></a>
+				<a href="/scislak/products"><p>View shop</p></a>
 			</div>
 			<div class="option">
 				<a href="/scislak/adminHome"><p>Add product</p></a>
