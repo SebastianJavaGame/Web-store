@@ -30,5 +30,4 @@ public class SaveClientJPA implements SaveableDataBase{
 			entityManagerFactory.close();
 		}
 	}
-
 }

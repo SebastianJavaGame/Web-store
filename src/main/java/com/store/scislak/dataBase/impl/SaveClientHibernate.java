@@ -11,5 +11,4 @@ public class SaveClientHibernate implements SaveableDataBase{
 		// TODO Auto-generated method stub
 		
 	}
-
 }

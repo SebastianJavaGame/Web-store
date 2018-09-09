@@ -59,6 +59,6 @@ public class SingUpValidatorTest {
 		list.add(client);
 		//when(readableDataBase.read("Client")).thenReturn((List<?>) list);
 		
-		assertEquals(client, readableDataBase.read("Client").get(0));
+		assertEquals(client, readableDataBase.readAll("Client").get(0));
 	}
 }

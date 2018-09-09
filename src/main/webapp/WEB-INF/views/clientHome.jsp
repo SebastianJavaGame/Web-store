@@ -1,3 +1,4 @@
+<%@page import="javax.persistence.criteria.Order"%>
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -56,24 +57,26 @@
 					<table style="width:100%">
 						<tr>
 							<th><p>OBJECT</p></th>
+							<th><p>CATEGORY</p></th>
+							<th><p>BRUTTO</p></th>
 							<th><p>COUNT</p></th>
-							<th><p>VAT23%%</p></th>
-							<th><p>NETTO</p></th>
 							<th><p>TOTAL</p></th>
 						</tr>
-						<tr>
-							<th><p>Chleb razowy czarny</p></th>
-							<th><p>2</p></th>
-							<th><p>0.10</p></th>
-							<th><p>2.00</p></th>
-							<th><p>4.20</p></th>
-						</tr>
+						<c:forEach items="${orders}" var="order">
+							<tr>
+								<th>${order.product.name}</th>
+								<th>${order.product.category}</th>
+								<th>${order.product.brutto}zł</th>
+								<th>${order.count}</th>
+								<th>${order.product.brutto * order.count}zł</th>
+							</tr>
+						</c:forEach>
 						<tr class="result">
-							<th><p>RESULT</p></th>
+							<th><p>SUMMARY</p></th>
 							<th><p>2</p></th>
 							<th><p>0.20</p></th>
 							<th><p>4.00</p></th>
-							<th><p>4.20</p></th>
+							<th><p>8.40zł</p></th>
 						</tr>
 					</table>
 				</div>

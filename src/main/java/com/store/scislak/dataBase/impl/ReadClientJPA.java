@@ -15,7 +15,7 @@ public class ReadClientJPA implements ReadableDataBase{
 	
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Object> read(String dataBase) {
+	public List<Object> readAll(String dataBase) {
 		init();
 		List<Object> listOfClient = null; 
 		
@@ -48,6 +48,42 @@ public class ReadClientJPA implements ReadableDataBase{
 		
 		return object;
 	}
+	
+	@Override
+	public Object read(int id, String dataBase) {
+		init();
+		Object object = null;
+		
+		try {			
+			object = entityManager.createQuery("FROM " + dataBase + " WHERE id='" + id + "'").getSingleResult();
+			
+			System.out.println(object.toString());
+		}
+		finally {
+			cleanUp();
+		}
+		
+		return object;
+	}
+	
+	@Override
+	@SuppressWarnings("unchecked")
+	public List<Object> readList(int id, String fieldSearch, String dataBase) {
+		init();
+		List<Object> objects = null;
+		
+		try {			
+			objects = entityManager.createQuery("FROM " + dataBase + " WHERE " + fieldSearch + "='" + id + "'").getResultList();
+			
+			System.out.println(objects.toString());
+		}
+		finally {
+			cleanUp();
+		}
+		
+		return objects;
+	}
+	
 	
 	private void init(){
 		entityManagerFactory = Persistence.createEntityManagerFactory("Connection");

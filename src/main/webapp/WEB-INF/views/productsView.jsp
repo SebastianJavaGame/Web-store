@@ -59,6 +59,9 @@
 					<th>Netto</th>
 					<th>Brutto</th>
 					<th>Vat</th>
+					<c:if test="${admin == false}">
+					<th>Buy</th>
+					</c:if>
 				</tr>
 			</table>
 		</div>
@@ -72,6 +75,15 @@
 								<td>${product.netto}</td>
 								<td>${product.brutto}</td>
 								<td>${product.vat}</td>
+								<c:if test="${admin == false}">
+								<td>
+									<form action="" method="post">
+										<input type="text" name="count" size="10" value="1">
+										<input type="hidden" name="index" value=${product.id}>
+										<input type="submit" value="Add to buy list"/>
+									</form>
+								</td>
+								</c:if>
 							</tr>
 						</table>
 					</div>
