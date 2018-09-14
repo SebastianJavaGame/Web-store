@@ -1,5 +1,7 @@
 <%@page pageEncoding="UTF-8" contentType="text/html; charset=UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"  %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"  %>
 
 <!DOCTYPE html>
 <html>
@@ -51,19 +53,37 @@
 			</header>
 		</c:if>
 		<div id="infoProductHead">
-			<table>
-				<tr>
-					<th>Image</th>
-					<th>Name</th>
-					<th>Category</th>
-					<th>Netto</th>
-					<th>Brutto</th>
-					<th>Vat</th>
-					<c:if test="${admin == false}">
-					<th>Buy</th>
-					</c:if>
-				</tr>
-			</table>
+			<form:form action="" method="post" modelAttribute="objectCategory">
+				<table>
+					<tr>
+						<th></th>
+						<th></th>
+						<th>
+							<form:select path="category">
+								<option value="" label="All"/>
+								<form:options items="${listOfCategory}"/>
+							</form:select>
+						</th>
+						<th></th>
+						<th></th>
+						<th></th>
+						<th>
+							<input type="submit" name="addFilter" value="Search"/>
+						</th>
+					</tr>
+					<tr>
+						<th>Image</th>
+						<th>Name</th>
+						<th>Category</th>
+						<th>Netto</th>
+						<th>Brutto</th>
+						<th>Vat</th>
+						<c:if test="${admin == false}">
+						<th>Buy</th>
+						</c:if>
+					</tr>
+				</table>
+			</form:form>
 		</div>
 		<c:forEach items="${products}" var="product">
 					<div class="caption">
@@ -80,7 +100,7 @@
 									<form action="" method="post">
 										<input type="text" name="count" size="10" value="1">
 										<input type="hidden" name="index" value=${product.id}>
-										<input type="submit" value="Add to buy list"/>
+										<input type="submit" name="addProduct" value="Add to buy list"/>
 									</form>
 								</td>
 								</c:if>

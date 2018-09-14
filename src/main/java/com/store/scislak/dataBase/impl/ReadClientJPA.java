@@ -10,8 +10,8 @@ import com.store.scislak.dataBase.ReadableDataBase;
 
 public class ReadClientJPA implements ReadableDataBase{
 	
-	private EntityManagerFactory entityManagerFactory;
-	private EntityManager entityManager;
+	protected EntityManagerFactory entityManagerFactory;
+	protected EntityManager entityManager;
 	
 	@SuppressWarnings("unchecked")
 	@Override
@@ -85,12 +85,12 @@ public class ReadClientJPA implements ReadableDataBase{
 	}
 	
 	
-	private void init(){
+	protected void init(){
 		entityManagerFactory = Persistence.createEntityManagerFactory("Connection");
 		entityManager = entityManagerFactory.createEntityManager();
 	}
 	
-	private void cleanUp() {
+	protected void cleanUp() {
 		entityManager.close();
 		entityManagerFactory.close();
 	}
