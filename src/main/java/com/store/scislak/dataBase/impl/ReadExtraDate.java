@@ -2,11 +2,13 @@ package com.store.scislak.dataBase.impl;
 
 import java.util.List;
 
-public class ReadCategory extends ReadClientJPA{
+import javax.persistence.Query;
+
+public class ReadExtraDate extends ReadClientJPA{
 	
 	@SuppressWarnings("unchecked")
 	public List<Object> readProductWithCategory(String dataBase, String category) {
-		super.init();
+		init();
 		List<Object> listOfClient = null; 
 		
 		try {		

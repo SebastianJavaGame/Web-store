@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import com.store.scislak.auth.ClientDetails;
 import com.store.scislak.auth.UserDetails;
 import com.store.scislak.dataBase.ReadableDataBase;
+import com.store.scislak.dataBase.impl.ReadExtraDate;
 import com.store.scislak.encje.Client;
 import com.store.scislak.encje.Reserve;
 
@@ -25,6 +26,9 @@ public class HomeController {
 	
 	@Autowired 
 	private UserDetails userDetails;
+	
+	//@Autowired
+	//private ReadExtraDate readExtraDate;
 	
 	@RequestMapping(value="/clients")
 	public String list(Model model) {
@@ -47,11 +51,22 @@ public class HomeController {
 			orders.add((Reserve)obj);
 		}
 		
-		System.out.println(orders.size());
-		
+		model.addAttribute("totalCount", (int)total(orders)[0]);
+		model.addAttribute("totalPrice", String.format("%.2f", total(orders)[1]));
 		model.addAttribute("orders", orders);
 		model.addAttribute("client", client);
 		
 		return "clientHome";
+	}
+	
+	@SuppressWarnings("unused")
+	private double[] total(List<Reserve> orders) {
+		double[] result = new double[2];
+		
+		for(int index = orders.size()-1; index >= 0; index--) {
+			result[0]+= orders.get(index).getCount();
+			result[1]+= (orders.get(index).getProduct().getBrutto() * orders.get(index).getCount());
+		}
+		return result;
 	}
 }

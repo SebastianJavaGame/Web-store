@@ -18,7 +18,7 @@
 	<beans:bean id="readableDataBase" class="com.store.scislak.dataBase.impl.ReadClientJPA" autowire="byName"/>
 	<beans:bean id="saveableDataBase" class="com.store.scislak.dataBase.impl.SaveClientJPA"/>
 	<beans:bean id="clientDetails" class="com.store.scislak.auth.ClientDetails"/>
-	<beans:bean id="readCategory" class="com.store.scislak.dataBase.impl.ReadCategory" autowire="byName"/>
+	<beans:bean id="readCategory" class="com.store.scislak.dataBase.impl.ReadExtraDate" autowire="byName"/>
 	<beans:bean id="category" class="com.store.scislak.encje.Category"/>
 	
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

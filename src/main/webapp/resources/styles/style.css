@@ -120,6 +120,7 @@ a:visited{
 
 .result {
 	color: red;
+	border: 1px solid red;
 }
 
 .caption{

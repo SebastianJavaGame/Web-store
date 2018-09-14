@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.store.scislak.auth.ClientDetails;
 import com.store.scislak.auth.ClientDetails.UserStatus;
 import com.store.scislak.dataBase.SaveableDataBase;
-import com.store.scislak.dataBase.impl.ReadCategory;
+import com.store.scislak.dataBase.impl.ReadExtraDate;
 import com.store.scislak.encje.Category;
 import com.store.scislak.encje.Client;
 import com.store.scislak.encje.Product;
@@ -27,7 +27,7 @@ public class ProductController {
 	private SaveableDataBase saveableDataBase;
 	
 	@Autowired
-	private ReadCategory readCategory;
+	private ReadExtraDate readCategory;
 	
 	@Autowired
 	private Category category;

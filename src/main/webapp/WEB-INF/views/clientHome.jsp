@@ -73,10 +73,10 @@
 						</c:forEach>
 						<tr class="result">
 							<th><p>SUMMARY</p></th>
-							<th><p>2</p></th>
-							<th><p>0.20</p></th>
-							<th><p>4.00</p></th>
-							<th><p>8.40zł</p></th>
+							<th><p>-</p></th>
+							<th><p>-</p></th>
+							<th><p>${totalCount}</p></th>
+							<th><p>${totalPrice}zł</p></th>
 						</tr>
 					</table>
 				</div>
